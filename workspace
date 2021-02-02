@@ -1,0 +1,302 @@
+let SessionLoad = 1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/dev/electrite
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +11 src/app/app.component.html
+badd +6 src/app/app.component.scss
+badd +1 src/app/post/post.component.html
+badd +1 src/app/post/post.component.scss
+badd +15 src/app/post/post.component.ts
+badd +1 src/app/subreddit/subreddit.component.html
+badd +13 src/app/subreddit/subreddit.component.scss
+badd +14 src/app/subreddit/subreddit.component.ts
+badd +1 src/app/app.module.ts
+badd +1 post.style.scss
+badd +13 src/app/subreddits.service.ts
+badd +51 src/app/types.ts
+badd +1 src/types/post.ts
+badd +1 src/types/subreddit.ts
+badd +1 ~/dev/electrite/src/app/posts.service.ts
+argglobal
+%argdel
+edit src/app/app.module.ts
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe '1resize ' . ((&lines * 49 + 27) / 54)
+exe 'vert 1resize ' . ((&columns * 102 + 105) / 210)
+exe '2resize ' . ((&lines * 22 + 27) / 54)
+exe 'vert 2resize ' . ((&columns * 107 + 105) / 210)
+exe '3resize ' . ((&lines * 26 + 27) / 54)
+exe 'vert 3resize ' . ((&columns * 107 + 105) / 210)
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 15 - ((14 * winheight(0) + 24) / 49)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+15
+normal! 046|
+wincmd w
+argglobal
+if bufexists("src/app/app.component.html") | buffer src/app/app.component.html | else | edit src/app/app.component.html | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 19 - ((18 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+19
+normal! 0
+wincmd w
+argglobal
+if bufexists("src/app/app.component.scss") | buffer src/app/app.component.scss | else | edit src/app/app.component.scss | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 7 - ((6 * winheight(0) + 13) / 26)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+7
+normal! 0
+wincmd w
+exe '1resize ' . ((&lines * 49 + 27) / 54)
+exe 'vert 1resize ' . ((&columns * 102 + 105) / 210)
+exe '2resize ' . ((&lines * 22 + 27) / 54)
+exe 'vert 2resize ' . ((&columns * 107 + 105) / 210)
+exe '3resize ' . ((&lines * 26 + 27) / 54)
+exe 'vert 3resize ' . ((&columns * 107 + 105) / 210)
+tabedit src/app/subreddit/subreddit.component.ts
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 104 + 105) / 210)
+exe '2resize ' . ((&lines * 22 + 27) / 54)
+exe 'vert 2resize ' . ((&columns * 105 + 105) / 210)
+exe '3resize ' . ((&lines * 27 + 27) / 54)
+exe 'vert 3resize ' . ((&columns * 105 + 105) / 210)
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 14 - ((0 * winheight(0) + 25) / 50)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+14
+normal! 071|
+wincmd w
+argglobal
+if bufexists("src/app/subreddit/subreddit.component.html") | buffer src/app/subreddit/subreddit.component.html | else | edit src/app/subreddit/subreddit.component.html | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 3 - ((2 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 05|
+wincmd w
+argglobal
+if bufexists("src/app/subreddit/subreddit.component.scss") | buffer src/app/subreddit/subreddit.component.scss | else | edit src/app/subreddit/subreddit.component.scss | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 13) / 27)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 104 + 105) / 210)
+exe '2resize ' . ((&lines * 22 + 27) / 54)
+exe 'vert 2resize ' . ((&columns * 105 + 105) / 210)
+exe '3resize ' . ((&lines * 27 + 27) / 54)
+exe 'vert 3resize ' . ((&columns * 105 + 105) / 210)
+tabedit src/app/post/post.component.ts
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe '1resize ' . ((&lines * 49 + 27) / 54)
+exe 'vert 1resize ' . ((&columns * 104 + 105) / 210)
+exe '2resize ' . ((&lines * 22 + 27) / 54)
+exe 'vert 2resize ' . ((&columns * 105 + 105) / 210)
+exe '3resize ' . ((&lines * 26 + 27) / 54)
+exe 'vert 3resize ' . ((&columns * 105 + 105) / 210)
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 15 - ((14 * winheight(0) + 24) / 49)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+15
+normal! 069|
+wincmd w
+argglobal
+if bufexists("src/app/post/post.component.html") | buffer src/app/post/post.component.html | else | edit src/app/post/post.component.html | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 042|
+wincmd w
+argglobal
+if bufexists("src/app/post/post.component.scss") | buffer src/app/post/post.component.scss | else | edit src/app/post/post.component.scss | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 13) / 26)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+exe '1resize ' . ((&lines * 49 + 27) / 54)
+exe 'vert 1resize ' . ((&columns * 104 + 105) / 210)
+exe '2resize ' . ((&lines * 22 + 27) / 54)
+exe 'vert 2resize ' . ((&columns * 105 + 105) / 210)
+exe '3resize ' . ((&lines * 26 + 27) / 54)
+exe 'vert 3resize ' . ((&columns * 105 + 105) / 210)
+tabedit src/app/subreddits.service.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 13 - ((12 * winheight(0) + 25) / 50)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+13
+normal! 024|
+tabnext 2
+if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=filnxtToOFAc
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
